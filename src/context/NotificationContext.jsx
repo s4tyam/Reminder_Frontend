@@ -34,6 +34,10 @@ export function NotifProvider({ children }) {
 
     const token = localStorage.getItem('token');
     const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:8080';
+    if (!apiUrl.includes('localhost')) {
+      // WebSocket not supported on Render free tier — skip silently
+      return;
+    }
 
     const client = new Client({
       webSocketFactory: () => new SockJS(`${apiUrl}/ws`),

@@ -26,8 +26,8 @@ export default function ReminderCard({ reminder, onDelete, onEdit, onDismiss }) 
           </div>
         </div>
         <div className="r-card__right">
-          <span className={`badge badge-${reminder.status.toLowerCase()}`}>
-            {reminder.status}
+          <span className={`badge badge-${reminder.status?.toLowerCase()}`}>
+            {reminder.status || 'PENDING'}
           </span>
           {recurrenceLabel && (
             <span className="r-card__recur">↻ {recurrenceLabel}</span>
