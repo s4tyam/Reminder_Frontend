@@ -9,7 +9,7 @@ export default function ReminderCard({ reminder, onDelete, onEdit, onDismiss }) 
   const isSent       = reminder.status === 'SENT';
   const isDismissed  = reminder.status === 'DISMISSED';
 
-  const recurrenceLabel = reminder.recurrence !== 'NONE'
+  const recurrenceLabel = reminder.recurrence && reminder.recurrence !== 'NONE'
     ? reminder.recurrence.charAt(0) + reminder.recurrence.slice(1).toLowerCase()
     : null;
 
