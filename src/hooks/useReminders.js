@@ -10,7 +10,7 @@ export function useReminders() {
     try {
       setLoading(true);
       const { data } = await reminderApi.getAll();
-      setReminders(data);
+      setReminders(Array.isArray(data) ? data : []);
     } catch (e) {
       toast.error('Failed to load reminders');
     } finally {
