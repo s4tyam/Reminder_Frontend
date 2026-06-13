@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { format, addMinutes } from 'date-fns';
 
 const LEAD_OPTIONS = [
@@ -20,7 +20,6 @@ export default function ReminderForm({ initial, onSubmit, onCancel, loading }) {
   const [form, setForm] = useState({
     title: '',
     description: '',
-    eventAt: toDatetimeLocal(addMinutes(new Date(), 60)),
     leadMinutes: 10,
     recurrence: 'NONE',
     ...initial,

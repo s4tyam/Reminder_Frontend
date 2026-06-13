@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useNotif } from '../context/NotificationContext';
 import { format } from 'date-fns';
@@ -9,7 +9,6 @@ export default function Navbar() {
   const { unreadCount, notifications, markAllRead } = useNotif();
   const [showNotifs, setShowNotifs] = useState(false);
   const navigate = useNavigate();
-  const location = useLocation();
 
   const handleLogout = () => { logout(); navigate('/login'); };
 
