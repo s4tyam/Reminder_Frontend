@@ -39,15 +39,15 @@ export default function ReminderCard({ reminder, onDelete, onEdit, onDismiss }) 
         <div className="r-card__time-item">
           <span className="r-card__time-label">Notify at</span>
           <span className="r-card__time-val">
-            {format(new Date(reminder.remindAt), 'MMM d, HH:mm')}
+            {reminder.remindAt ? format(new Date(reminder.remindAt), 'MMM d, HH:mm') : 'Not set'}
           </span>
-          {isPending && <CountdownTimer remindAt={reminder.remindAt} />}
+          {isPending && reminder.remindAt && <CountdownTimer remindAt={reminder.remindAt} />}
         </div>
         {reminder.leadMinutes > 0 && (
           <div className="r-card__time-item">
             <span className="r-card__time-label">Event at</span>
             <span className="r-card__time-val">
-              {format(new Date(reminder.eventAt), 'MMM d, HH:mm')}
+              {reminder.eventAt ? format(new Date(reminder.eventAt), 'MMM d, HH:mm') : 'Not set'}
             </span>
           </div>
         )}
